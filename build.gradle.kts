@@ -27,11 +27,12 @@ dependencies {
     implementation("io.quarkus:quarkus-hibernate-orm")
     implementation("io.quarkus:quarkus-resteasy")
     testImplementation("io.quarkus:quarkus-junit5")
+    testImplementation("org.junit.platform:junit-platform-suite:1.10.2")
+    testImplementation("io.cucumber:cucumber-junit-platform-engine:7.16.1")
     testImplementation("io.rest-assured:rest-assured")
     testImplementation("net.serenity-bdd:serenity-core:4.0.21")
     testImplementation("net.serenity-bdd:serenity-cucumber:4.0.21")
     testImplementation("net.serenity-bdd:serenity-junit5:4.0.21")
-    testImplementation("org.junit.vintage:junit-vintage-engine:5.10.1")
 }
 
 group = "com.tnfigueiredo"

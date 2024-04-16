@@ -20,5 +20,8 @@ class DepartmentService {
     }
 
 
+    @Transactional
     fun delete(department: Department): Unit = departmentRepository.delete(department)
+
+    fun findByAbbreviation(abbreviation: String): Department? = departmentRepository.findByAbbreviation(abbreviation)
 }

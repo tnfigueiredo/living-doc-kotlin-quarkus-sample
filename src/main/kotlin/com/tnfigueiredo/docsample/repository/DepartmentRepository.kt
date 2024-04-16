@@ -9,4 +9,6 @@ class DepartmentRepository : PanacheRepository<Department> {
 
     fun findByName(name: String): Department? = find("name", name).firstResult()
 
+    fun findByAbbreviation(abbreviation: String): Department? = find("abbreviation", abbreviation).firstResult()
+
 }

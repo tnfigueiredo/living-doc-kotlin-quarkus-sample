@@ -21,9 +21,6 @@ class DepartmentsManagementStepsDefinition {
     @Inject
     private lateinit var departmentService: DepartmentService
 
-    @Inject
-    private lateinit var departmentRepository: DepartmentRepository
-
     private var oldDepartmentEntity: Department? = null
     private var departmentEntity: Department? = null
     private lateinit var creator: GeneralUser
@@ -40,9 +37,10 @@ class DepartmentsManagementStepsDefinition {
     }
 
     @And("There is an existing department already registered: {string}, {string}")
-    @Transactional
     fun givenOldDepartmentAlreadyRegistered(departmentName: String, departmentAbbreviation: String){
-        departmentRepository.delete("abbreviation", "OLDDPTO")
+        departmentService.findByAbbreviation(departmentAbbreviation)?.let {
+            departmentService.delete(it)
+        }
         oldDepartmentEntity = departmentService.save(creator, Department(name = departmentName, abbreviation = departmentAbbreviation))
     }
 
